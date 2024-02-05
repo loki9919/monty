@@ -38,28 +38,28 @@ typedef struct instruction_s
 
 extern stack_t *head;
 
-void error1(int errorn, char *file_name, int line_number);
-void error1(int errorn, int line_number);
+void read_file(FILE *file);
+void error_function(int error_number, char *file_name, int line_number);
+int split_string(char *lineptr, int line_number, int flag);
+void _opcode_funct(char *value, char *opcode, int line_number, int flag);
+void _push_to_stack(stack_t **new_node, unsigned int value);
+void _print_all_stack(stack_t **actual_head, unsigned int line_number);
+void free_dlistint(stack_t *head);
+void _print_top_stack(stack_t **actual_head, unsigned int line_number);
+void _remove_top_stack(stack_t **actual_head, unsigned int line_number);
+void _swap_two_top_stack(stack_t **actual_head, unsigned int line_number);
+void _add_two_top_stack(stack_t **actual_head, unsigned int line_number);
+void _nop_does_anything(stack_t **actual_head, unsigned int line_number);
 void (*get_op_func(char *s))(stack_t **, unsigned int);
-void push_stack(stack_t **ahead, unsigned int vn);
-void printall(stack_t **ahead, unsigned int line_number);
-void freedlist(stack_t *head);
-void printtop(stack_t **ahead, unsigned int line_number);
-void removetop(stack_t **ahead, unsigned int line_number);
-void swaptwotop(stack_t **ahead, unsigned int line_number);
-void addtwotop(stack_t **ahead, unsigned int line_number);
-void nop(stack_t **ahead, unsigned int line_number);
-void subtopsec(stack_t **ahead, unsigned int line_number);
-void div(stack_t **ahead, unsigned int line_number);
-void _mul(stack_t **ahead, unsigned int line_number);
-void _mod(stack_t **ahead, unsigned int line_number);
-void _printchar(stack_t **ahead, unsigned int line_number);
-void _printstring(stack_t **ahead, unsigned int line_number);
-void _rotate(stack_t **ahead, unsigned int line_number);
-void _rotatestack(stack_t **ahead, unsigned int line_number);
-void _pushinqueue(stack_t **ahead, unsigned int value);
-void readfile(FILE *file);
-int _split(char *line, int line_number, int flag);
-void _opcodefunc(char *value, char *monty, int line_number, int flag);
+void _sub_top_second_stack(stack_t **actual_head, unsigned int line_number);
+void _div_second_top_stack(stack_t **actual_head, unsigned int line_number);
+void error_funct_2(int error_number, int line_number);
+void _mul_second_top_stack(stack_t **actual_head, unsigned int line_number);
+void _mod_second_top_stack(stack_t **actual_head, unsigned int line_number);
+void _print_char_top_stack(stack_t **actual_head, unsigned int line_number);
+void _print_string_top_stack(stack_t **actual_head, unsigned int line_number);
+void _rotate_stack_top(stack_t **actual_head, unsigned int line_number);
+void _rotate_stack_bottom(stack_t **actual_head, unsigned int line_number);
+void _push_in_queue(stack_t **actual_head, unsigned int value);
 
 #endif

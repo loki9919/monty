@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * error - function to print in stderr all the errors
+ * error_function - function to print in stderr all the errors
  * @error_number: number of the error
  * @file_name: name of the file with bitcode
  * @line_number: line of the monty file that is readed.
  *
  */
-void error(int error_number, char *file_name, int line_number)
+void error_function(int error_number, char *file_name, int line_number)
 {
 	switch (error_number)
 	{
@@ -54,7 +54,7 @@ void error(int error_number, char *file_name, int line_number)
  * @line_number: line of the monty file that is readed.
  *
  */
-void error1(int error_number, int line_number)
+void error_funct_2(int error_number, int line_number)
 {
 	switch (error_number)
 	{
