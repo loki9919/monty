@@ -5,9 +5,9 @@
  * @ahead: head of the dlist
  * @ln: line number of the command
  */
-void _rotatestack(stack_t **ahead, unsigned int ln)
+void _rotatestack(stack_t **ahead, unsigned int line_number)
 {
-	(void)ln;
+	(void)line_number;
 	stack_t *tmp;
 	int tmpv = 0, tmpvn = 0, counter = 0;
 
@@ -75,8 +75,8 @@ void _pushinqueue(stack_t **ahead, unsigned int value)
 
 	while (getline(&line, &n, file) != EOF)
 	{
-		flag = _split(lineprt, ln, flag);
-		ln++;
+		flag = _split(line, line_number, flag);
+		line_number++;
 	}
 	free(line);
 }
@@ -87,7 +87,7 @@ void _pushinqueue(stack_t **ahead, unsigned int value)
  * @flag: flag to know if is stack or queue
  * Return: 0 if is stack or 1 if is queue
  */
-int _split(char *line, int ln, int flag)
+int _split(char *line, int line_number, int flag)
 {
 	char *opcode;
 	char *value;
@@ -109,7 +109,7 @@ int _split(char *line, int ln, int flag)
 			flag = 1;
 			return (flag);
 		}
-		_opcodefunc(value, opcode, ln, flag);
+		_opcodefunc(value, opcode, line_number, flag);
 	}
 	return (flag);
 }
@@ -120,7 +120,7 @@ int _split(char *line, int ln, int flag)
   * @ln: the line where is the instruction
   * @flag: flag to know if is stack or queue
   */
-void _opcodefunc(char *value, char *monty, int ln, int flag)
+void _opcodefunc(char *value, char *monty, int line_number, int flag)
 {
 	void (*operation)(stack_t **, unsigned int);
 	int i = 1, j = 0;
@@ -132,7 +132,7 @@ void _opcodefunc(char *value, char *monty, int ln, int flag)
 		if (strcmp(monty, "push") == 0)
 		{
 			if (value == NULL)
-				error1(5, monty, ln);
+				error1(5, monty, line_number);
 			else if (value[0] == '-')
 			{
 				value = value + 1;
@@ -141,7 +141,7 @@ void _opcodefunc(char *value, char *monty, int ln, int flag)
 			while (value[j])
 			{
 				if (isdigit(value[j]) == 0)
-					error1(5, monty, ln);
+					error1(5, monty, line_number);
 					j++;
 			}
 			tmpvalue = atoi(value) * i;
@@ -151,8 +151,8 @@ void _opcodefunc(char *value, char *monty, int ln, int flag)
 				_pushinqueue(&head, tmpvalue);
 		}
 		else
-			operation(&head, ln);
+			operation(&head, line_number);
 		return;
 	}
-	error1(3, monty, ln);
+	error1(3, monty, line_number);
 }

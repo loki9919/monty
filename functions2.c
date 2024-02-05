@@ -5,7 +5,7 @@
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void swaptwotop(stack_t **ahead, unsigned int ln)
+void swaptwotop(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -23,14 +23,14 @@ void swaptwotop(stack_t **ahead, unsigned int ln)
 		tmp->next->n = tmpv;
 	}
 	else
-		error(8, NULL, ln);
+		error(8, NULL, line_number);
 }
 /**
  * addtwotop - swaps the top two elements
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void addtwotop(stack_t **ahead, unsigned int ln)
+void addtwotop(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -45,19 +45,19 @@ void addtwotop(stack_t **ahead, unsigned int ln)
 		tmp = *ahead;
 		tmpv = tmp->n + tmp->next->n;
 		tmp->next->n = tmpv;
-		removetop(ahead, ln);
+		removetop(ahead, line_number);
 	}
 	else
-		error(9, NULL, ln);
+		error(9, NULL, line_number);
 }
 /**
  * nop - doesn’t do anything
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void nop(stack_t **ahead, unsigned int ln)
+void nop(stack_t **ahead, unsigned int line_number)
 {
-	(void)ln;
+	(void)line_number;
 	(void)ahead;
 }
 /**
@@ -65,7 +65,7 @@ void nop(stack_t **ahead, unsigned int ln)
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void subtopsec(stack_t **ahead, unsigned int ln)
+void subtopsec(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -83,15 +83,14 @@ void subtopsec(stack_t **ahead, unsigned int ln)
 		removetop(ahead, ln);
 	}
 	else
-		error(10, NULL, ln);
+		error(10, NULL, line_number);
 }
-
 /**
  * div - divides second top element
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void div(stack_t **ahead, unsigned int ln)
+void div(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -105,7 +104,7 @@ void div(stack_t **ahead, unsigned int ln)
 	{
 		tmp = *ahead;
 		if (tmp->n == 0)
-			error1(12, ln);
+			error1(12, line_number);
 		tmpv = tmp->next->n / tmp->n;
 		tmp->next->n = tmpv;
 		removetop(ahead, ln);

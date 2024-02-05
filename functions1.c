@@ -59,29 +59,29 @@ void freedlist(stack_t *head)
  * @ln: line number of the command
  */
 
-void printtop(stack_t **ahead, unsigned int ln)
+void printtop(stack_t **ahead, unsigned int line_number)
 {
-	(void)ln;
+	(void)line_number;
 	stack_t *tmp;
 
 	tmp = *ahead;
 	if (*ahead != NULL)
 		printf("%i\n", tmp->n);
 	else
-		error_function(6, NULL, ln);
+		error1(6, NULL, line_number);
 }
 /**
  * removetop - delete the top in the stack
  * @actual_head: pointer to head
  * @ln: line number of command
  */
-void removetop(stack_t **ahead, unsigned int ln)
+void removetop(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp, *tmp1;
 
 	tmp = *ahead;
 	if (tmp == NULL)
-		error_function(7, NULL, ln);
+		error_function(7, NULL, line_number);
 	tmp1 = *ahead;
 	*ahead = tmp->next;
 	tmp = tmp->next;

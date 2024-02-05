@@ -5,7 +5,7 @@
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void _mul(stack_t **ahead, unsigned int ln)
+void _mul(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -20,18 +20,17 @@ void _mul(stack_t **ahead, unsigned int ln)
 		tmp = *ahead;
 		tmpv = tmp->next->n * tmp->n;
 		tmp->next->n = tmpv;
-		removetop(ahead, ln);
+		removetop(ahead, line_number);
 	}
 	else
-		error1(13, ln);
+		error1(13, line_number);
 }
-
 /**
  * _mod - compute rest div second top element
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void _mod(stack_t **ahead, unsigned int ln)
+void _mod(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -45,20 +44,20 @@ void _mod(stack_t **ahead, unsigned int ln)
 	{
 		tmp = *ahead;
 		if (tmp->n == 0)
-			error1(12, ln);
+			error1(12, line_number);
 		tmpv = tmp->next->n % tmp->n;
 		tmp->next->n = tmpv;
-		removetop(ahead, ln);
+		removetop(ahead, line_number);
 	}
 	else
-		error1(14, ln);
+		error1(14, line_number);
 }
 /**
  * _printchar -  prints the char
  * @ln: line number of the command
  * @ahead: head of the dlist
  */
-void _printchar(stack_t **ahead, unsigned int ln)
+void _printchar(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp;
 
@@ -67,18 +66,18 @@ void _printchar(stack_t **ahead, unsigned int ln)
 		if (tmp->n >= 32 && tmp->n <= 126)
 			printf("%c\n", tmp->n);
 		else
-			error1(16, ln);
+			error1(16, line_number);
 	else
-		error1(15, ln);
+		error1(15, line_number);
 }
 /**
  * _printstring - prints the string starting
  * @ahead: head of the dlist
  * @ln: line number of the command
  */
-void _printstring(stack_t **ahead, unsigned int ln)
+void _printstring(stack_t **ahead, unsigned int line_number)
 {
-	(void)ln;
+	(void)line_number;
 	stack_t *tmp;
 
 	tmp = *ahead;
@@ -103,9 +102,9 @@ void _printstring(stack_t **ahead, unsigned int ln)
  * @ahead: head of the dlist
  * @ln: line number of the command
  */
-void _rotate(stack_t **ahead, unsigned int ln)
+void _rotate(stack_t **ahead, unsigned int line_number)
 {
-	(void)ln;
+	(void)line_number;
 	stack_t *tmp;
 	int counter = 0, tmpv = 0;
 
