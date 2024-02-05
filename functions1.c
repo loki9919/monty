@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * push_stack - pushe to the stack.
+ * _push_stack - pushe to the stack.
  * @vn: value to add to the node
  * @ahead: address head
  */
-void push_stack(stack_t **ahead, unsigned int vn)
+void _push_stack(stack_t **ahead, unsigned int vn)
 {
 	stack_t *newnode;
 	stack_t *cur = *ahead;
@@ -88,4 +88,4 @@ void removetop(stack_t **ahead, unsigned int line_number)
 	if (tmp != NULL)
 		tmp->prev = NULL;
 	free(tmp1);
-}
+i}

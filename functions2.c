@@ -51,21 +51,21 @@ void addtwotop(stack_t **ahead, unsigned int line_number)
 		error(9, NULL, line_number);
 }
 /**
- * nop - doesn’t do anything
+ * _nop - doesn’t do anything
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void nop(stack_t **ahead, unsigned int line_number)
+void _nop(stack_t **ahead, unsigned int line_number)
 {
 	(void)line_number;
 	(void)ahead;
 }
 /**
- * subtopsec - subtracts top element from the second top element
+ * _sub - subtracts top element from the second top element
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void subtopsec(stack_t **ahead, unsigned int line_number)
+void _sub(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
@@ -86,11 +86,11 @@ void subtopsec(stack_t **ahead, unsigned int line_number)
 		error(10, NULL, line_number);
 }
 /**
- * div - divides second top element
+ * _div - divides second top element
  * @ln: line number of the command
  * @ahead: address of the head
  */
-void div(stack_t **ahead, unsigned int line_number)
+void _div(stack_t **ahead, unsigned int line_number)
 {
 	stack_t *tmp = *ahead;
 	int counter = 0, tmpv = 0;
