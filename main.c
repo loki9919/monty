@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	int line_number = 1;
 	int flag = 0;
 
-	while (getline(&lineprt, &n, file) != EOF)
+	while (custom_getline(&lineprt, &n, file) != EOF)
 	{
 		flag = split_string(lineprt, line_number, flag);
 		line_number++;
@@ -113,7 +113,9 @@ void _opcode_funct(char *value, char *monty_opcode, int line_number, int flag)
 			while (value[j])
 			{
 				if (isdigit(value[j]) == 0)
+				{
 					error_function(5, monty_opcode, line_number);
+				}
 					j++;
 			}
 			int_value = atoi(value) * signo;

@@ -61,5 +61,6 @@ void _print_string_top_stack(stack_t **actual_head, unsigned int line_number);
 void _rotate_stack_top(stack_t **actual_head, unsigned int line_number);
 void _rotate_stack_bottom(stack_t **actual_head, unsigned int line_number);
 void _push_in_queue(stack_t **actual_head, unsigned int value);
+ssize_t custom_getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif
